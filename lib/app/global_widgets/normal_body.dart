@@ -20,11 +20,17 @@ class NormalBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Obx(() {
-            return IconButton.filledTonal(
-              onPressed: increment,
-              icon: Text(count.value.toString()),
+            return Text(
+              count.value.toString(),
+              style: const TextStyle(fontSize: 20),
             );
           }),
+          const SizedBox(height: 16),
+          IconButton.filledTonal(
+            onPressed: increment,
+            iconSize: 32,
+            icon: const Icon(Icons.add),
+          ),
           const SizedBox(height: 32),
           FilledButton(
             onPressed: onTapNext,

@@ -30,19 +30,19 @@ class DashboardView extends GetView<DashboardController> {
 
   Widget _bottomNavigationBar() {
     return Obx(() {
-      return BottomNavigationBar(
-        currentIndex: controller.index.value,
-        onTap: controller.index.call,
-        items: const [
-          BottomNavigationBarItem(
+      return NavigationBar(
+        selectedIndex: controller.index.value,
+        onDestinationSelected: controller.index.call,
+        destinations: const [
+          NavigationDestination(
             icon: Icon(Icons.circle),
             label: 'A',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.circle),
             label: 'B',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.circle),
             label: 'C',
           ),
