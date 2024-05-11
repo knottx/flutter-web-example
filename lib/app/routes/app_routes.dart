@@ -1,26 +1,60 @@
-// ignore_for_file: constant_identifier_names
+import 'package:flutter_web_example/app/modules/a_detail/a_detail_view.dart';
+import 'package:flutter_web_example/app/modules/a_index/a_index_view.dart';
+import 'package:flutter_web_example/app/modules/b_detail/b_detail_view.dart';
+import 'package:flutter_web_example/app/modules/b_index/b_index_view.dart';
+import 'package:flutter_web_example/app/modules/dashboard/dashboard_view.dart';
+import 'package:go_router/go_router.dart';
 
-part of 'app_pages.dart';
-// DO NOT EDIT. This is code generated via package:get_cli/get_cli.dart
+abstract class Paths {
+  static const dashboard = '/dashboard';
 
-abstract class Routes {
-  Routes._();
-  static const DASHBOARD = _Paths.DASHBOARD;
-  static const A_1 = _Paths.A_1;
-  static const A_2 = _Paths.A_2;
-  static const B_1 = _Paths.B_1;
-  static const B_2 = _Paths.B_2;
-  static const C_1 = _Paths.C_1;
-  static const C_2 = _Paths.C_2;
+  static const aIndex = '$dashboard/a-index';
+  static String aIndexDetail({required String id}) => '$aIndex/$id';
+
+  static const bIndex = '$dashboard/b-index';
+  static String bIndexDetail({required String id}) => '$bIndex/$id';
 }
 
-abstract class _Paths {
-  _Paths._();
-  static const DASHBOARD = '/dashboard';
-  static const A_1 = '/a-1';
-  static const A_2 = '/a-2';
-  static const B_1 = '/b-1';
-  static const B_2 = '/b-2';
-  static const C_1 = '/c-1';
-  static const C_2 = '/c-2';
+class AppPages {
+  static final router = GoRouter(
+    initialLocation: Paths.dashboard,
+    routes: [
+      GoRoute(
+        path: '/dashboard',
+        builder: (context, state) => const DashboardView(),
+        routes: [
+          GoRoute(
+            path: 'a-index',
+            builder: (context, state) => const AIndexView(),
+            routes: [
+              GoRoute(
+                path: ':id',
+                builder: (context, state) {
+                  final id = state.pathParameters['id'];
+                  return ADetailView(
+                    id: id,
+                  );
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: 'b-index',
+            builder: (context, state) => const BIndexView(),
+            routes: [
+              GoRoute(
+                path: ':id',
+                builder: (context, state) {
+                  final id = state.pathParameters['id'];
+                  return BDetailView(
+                    id: id,
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+  );
 }

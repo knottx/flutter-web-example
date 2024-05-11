@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class NormalBody extends StatelessWidget {
-  final RxInt count;
+  final int count;
   final VoidCallback increment;
   final VoidCallback onTapNext;
 
@@ -19,12 +18,10 @@ class NormalBody extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Obx(() {
-            return Text(
-              count.value.toString(),
-              style: const TextStyle(fontSize: 20),
-            );
-          }),
+          Text(
+            count.toString(),
+            style: const TextStyle(fontSize: 20),
+          ),
           const SizedBox(height: 16),
           IconButton.filledTonal(
             onPressed: increment,

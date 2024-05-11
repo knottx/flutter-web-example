@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_example/app/routes/app_pages.dart';
-import 'package:get/get.dart';
+import 'package:flutter_web_example/app/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
+  GoRouter.optionURLReflectsImperativeAPIs = true;
+
   runApp(
-    GetMaterialApp(
-      title: 'Application',
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+    MaterialApp.router(
+      routerConfig: AppPages.router,
     ),
   );
 }
