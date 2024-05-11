@@ -28,7 +28,6 @@ class NormalBody extends StatelessWidget {
           const SizedBox(height: 16),
           IconButton.filledTonal(
             onPressed: increment,
-            iconSize: 32,
             icon: const Icon(Icons.add),
           ),
           const SizedBox(height: 32),
