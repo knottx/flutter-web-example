@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
-class NormalBody extends StatelessWidget {
+class IncrementCountBody extends StatelessWidget {
   final int count;
   final VoidCallback increment;
-  final VoidCallback onTapNext;
 
-  const NormalBody({
+  const IncrementCountBody({
     super.key,
     required this.count,
     required this.increment,
-    required this.onTapNext,
   });
 
   @override
@@ -26,11 +24,6 @@ class NormalBody extends StatelessWidget {
           IconButton.filledTonal(
             onPressed: increment,
             icon: const Icon(Icons.add),
-          ),
-          const SizedBox(height: 32),
-          FilledButton(
-            onPressed: onTapNext,
-            child: const Text('Next'),
           ),
         ],
       ),
