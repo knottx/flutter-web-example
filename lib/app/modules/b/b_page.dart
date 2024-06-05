@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_example/app/global_widgets/normal_body.dart';
-import 'package:flutter_web_example/app/modules/a/cubit/a_page_cubit.dart';
 import 'package:flutter_web_example/app/modules/b/cubit/b_page_cubit.dart';
 import 'package:flutter_web_example/app/modules/b/cubit/b_page_state.dart';
 
@@ -35,11 +34,12 @@ class _BViewState extends State<BView> {
             centerTitle: true,
           ),
           body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IncrementCountBody(
                 count: state.count,
                 increment: () {
-                  context.read<APageCubit>().increment();
+                  context.read<BPageCubit>().increment();
                 },
               ),
             ],

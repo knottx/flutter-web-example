@@ -39,7 +39,7 @@ class _AIndexViewState extends State<AIndexView> {
             children: List.generate(
               state.count,
               (number) {
-                final id = 'A_${number.toStringAsPrecision(3)}';
+                final id = 'A_${number.toString().padLeft(3, '0')}';
                 return ListTile(
                   title: Text(id),
                   onTap: () {

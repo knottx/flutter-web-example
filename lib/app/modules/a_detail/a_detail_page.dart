@@ -31,8 +31,6 @@ class ADetailView extends StatefulWidget {
 }
 
 class _ADetailViewState extends State<ADetailView> {
-  int count = 0;
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ADetailPageCubit, ADetailPageState>(
@@ -43,7 +41,7 @@ class _ADetailViewState extends State<ADetailView> {
             centerTitle: true,
           ),
           body: IncrementCountBody(
-            count: count,
+            count: state.count,
             increment: () {
               context.read<ADetailPageCubit>().increment();
             },
